@@ -1,17 +1,32 @@
 import sys
 
-def main(n):
+def re1(n):
     ret = set()
     if n == 0 :
         return ''
     elif n == 1 :
         return set(['()'])
     else :
-        for item in main(n-1):
+        for item in re1(n-1):
             for i in range(len(item)+1) :
                 ret.add(item[0:i]+'()'+item[i:])
         print n , len(ret), ret
         return ret
 
+def DFS(num_l, num_r, str):
+    if num_l == 0 and num_r == 0 :
+        print str
+    else :
+        if num_l > 0 :
+            str = str + "("
+            DFS(num_l-1, num_r, str)
+        if num_r > 0 :
+            str = str + ")"
+            DFS(num_l, num_r-1, str)
+    return
+    
+
+
 if __name__ == '__main__':
-    main(9)        
+    DFS(3,3,"")        
+
