@@ -18,15 +18,13 @@ def DFS(num_l, num_r, str):
         print str
     else :
         if num_l > 0 :
-            str = str + "("
-            DFS(num_l-1, num_r, str)
-        if num_r > 0 :
-            str = str + ")"
-            DFS(num_l, num_r-1, str)
+            DFS(num_l-1, num_r, str+"(")
+        if num_r > 0 and num_r > num_l:
+            DFS(num_l, num_r-1, str+")")
     return
     
 
 
 if __name__ == '__main__':
-    DFS(3,3,"")        
+    DFS(10,10,"")        
 
