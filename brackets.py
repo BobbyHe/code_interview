@@ -26,5 +26,8 @@ def DFS(num_l, num_r, str):
 
 
 if __name__ == '__main__':
-    DFS(10,10,"")        
+    if len(sys.argv) > 1 :
+        DFS(int(sys.argv[1]), int(sys.argv[1]), "")
+    else:
+        DFS(5,5,"")        
 
